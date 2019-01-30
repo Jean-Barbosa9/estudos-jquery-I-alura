@@ -1,1 +1,5 @@
-console.log('Testing jQuery: ',$('.paragrafo').text())
+var frase = $('.frase').text(),
+tamanhoFrase = frase.split(' ').length,
+numPalavras = $('#numero-palavras');
+
+numPalavras.text(tamanhoFrase);
