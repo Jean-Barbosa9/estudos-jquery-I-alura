@@ -1,10 +1,12 @@
+// declaração de variáveis
 var frase = $('.frase').text(),
 tamanhoFrase = frase.split(' ').length,
-numPalavras = $('#numero-palavras');
+numPalavras = $('#numero-palavras'),
+campo = $('.campo-digitacao'),
+var tempoRestante = $('#tempo').text();
 
+// ações
 numPalavras.text(tamanhoFrase);
-
-var campo = $('.campo-digitacao')
 
 campo.on('input', function() {
   var qtdPalavras = campo.val().split(/\S+/).length - 1
@@ -13,7 +15,6 @@ campo.on('input', function() {
   $('#contador-palavras').text(qtdPalavras)
 });
 
-var tempoRestante = $('#tempo').text()
 campo.on('focus', function() {
   var cronometro = setInterval(function(){
     tempoRestante--;
