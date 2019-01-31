@@ -11,4 +11,17 @@ campo.on('input', function() {
   var qtdCaracteres = campo.val().replace(/\s+/g,'').length
   $('#contador-caracteres').text(qtdCaracteres)
   $('#contador-palavras').text(qtdPalavras)
-})
+});
+
+var tempoRestante = $('#tempo').text()
+campo.on('focus', function() {
+  var cronometro = setInterval(function(){
+    tempoRestante--;
+    $('#tempo').text(tempoRestante)
+
+    if(tempoRestante < 1) {
+      campo.attr('disabled',true)
+      clearInterval(cronometro)
+    }
+  },1000)
+});
