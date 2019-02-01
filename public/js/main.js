@@ -29,6 +29,7 @@ function inicializaCronometro(){
       if (tempoRestante < 1) {
         campo.attr('disabled', true)
         clearInterval(cronometro)
+        $('#reiniciar').removeAttr('disabled')
       }
     }, 1000)
   });
@@ -40,6 +41,7 @@ function reiniciaJogo() {
   $('#tempo').text(tempoInicial)
   campo.attr('disabled',false).val('')
   inicializaCronometro()
+  $('#reiniciar').attr('disabled',true)
 }
 
 // execução de funções
