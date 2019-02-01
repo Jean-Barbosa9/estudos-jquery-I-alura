@@ -1,6 +1,8 @@
 // declaração de variáveis globais
 var tempoInicial = $('#tempo').text(),
-  campo = $('.campo-digitacao');
+campo = $('.campo-digitacao'),
+frase = $('.frase').text(),
+digitacaoValida = true;
 
 // declaração de funções
 function atualizaPalavras(){
@@ -35,6 +37,21 @@ function inicializaCronometro(){
   });
 }
 
+function acompanhaDigitacao() {
+  campo.on('input',function(){
+    var digitado = campo.val(),
+    comparavel = frase.substr(0,digitado.length);
+
+    if(digitado == comparavel) {
+      campo.addClass('certo').removeClass('errado')
+    }
+    else {
+      campo.addClass('errado').removeClass('certo')
+      digitacaoValida = false
+    }
+  })
+}
+
 function reiniciaJogo() {
   $('#contador-caracteres').text('0')
   $('#contador-palavras').text('0')
@@ -42,6 +59,7 @@ function reiniciaJogo() {
   campo.attr('disabled',false).val('')
   inicializaCronometro()
   $('#reiniciar').attr('disabled',true)
+  campo.removeClass('certo errado')
 }
 
 // execução de funções
@@ -49,5 +67,6 @@ $(function(){
   atualizaPalavras()
   inicializaContadores()
   inicializaCronometro()
+  acompanhaDigitacao()
   $('#reiniciar').click(reiniciaJogo);
 })

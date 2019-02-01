@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Alura Typer</title>
-</head>
-<body>
-  <h1 class="titulo">Alura Typer</h1>
-  <p class="frase">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla tenetur quo sapiente, molestias officia reprehenderit a natus optio ullam assumenda ad praesentium consequuntur aliquid sequi, excepturi deserunt libero quaerat? Eaque?</p>
-  <ul class="informacoes">
-    <li>
-      <span id="numero-palavras"></span> palavras
-    </li>
-    <li>
-      <span id="tempo">10</span> segundos
-    </li>
-  </ul>
-  <textarea class="campo-digitacao" rows="8" cols ="40"></textarea>
-  <button id="reiniciar" disabled>Reiniciar</button>
-  <ul>
-    <li>
-      <span id="contador-caracteres">0</span> caracteres
-    </li>
-    <li>
-      <span id="contador-palavras">0</span> palavras
-    </li>
-  </ul>
-  <script type="text/javascript" src="js/jquery.js"></script>
-  <script type="text/javascript" src="js/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Alura Typer</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/libs/google-fonts.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="titulo center">Alura Typer</h1>
+      <p class="frase">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla tenetur quo sapiente, molestias officia reprehenderit a natus optio ullam assumenda ad praesentium consequuntur aliquid sequi, excepturi deserunt libero quaerat? Eaque?</p>
+      <ul class="informacoes center">
+        <li>
+          <i class="icones small material-icons">description</i>
+          <span id="numero-palavras"></span> palavras
+        </li>
+        <li>
+          <i class="icones small material-icons">query_builder</i>
+          <span id="tempo">10</span> segundos
+        </li>
+      </ul>
+      <textarea class="campo-digitacao" rows="8" cols ="40"></textarea>
+      <div class="botoes">
+        <button class="btn-floating btn-large waves-effect waves-light red" id="reiniciar" disabled>
+          <i class="material-icons">restore</i>
+          Reiniciar
+        </button>
+      </div>
+      <ul class="contadores center">
+        <li>
+          <span id="contador-caracteres">0</span> caracteres
+        </li>
+        <li>
+          <span id="contador-palavras">0</span> palavras
+        </li>
+      </ul>
+    </div>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
 </html>
