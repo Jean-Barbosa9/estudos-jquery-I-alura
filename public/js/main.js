@@ -40,15 +40,13 @@ function inicializaCronometro(){
 function acompanhaDigitacao() {
   campo.on('input',function(){
     var digitado = campo.val(),
-    comparavel = frase.substr(0,digitado.length);
+    comparavel = frase.substr(0,digitado.length),
+    certo = (digitado == comparavel);
 
-    if(digitado == comparavel) {
-      campo.addClass('certo').removeClass('errado')
-    }
-    else {
-      campo.addClass('errado').removeClass('certo')
-      digitacaoValida = false
-    }
+    campo.toggleClass('certo',certo)
+    campo.toggleClass('errado',!certo)
+    digitacaoValida = certo
+
   })
 }
 
