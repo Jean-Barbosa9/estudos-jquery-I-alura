@@ -2,13 +2,7 @@
 var tempoInicial = $('#tempo').text(),
   campo = $('.campo-digitacao');
 
-$(function(){
-  atualizaPalavras()
-  inicializaContadores()
-  inicializaCronometro()
-  $('#reiniciar').click(reiniciaJogo);
-})
-
+// declaração de funções
 function atualizaPalavras(){
   var frase = $('.frase').text(), tamanhoFrase = frase.split(' ').length;
   numPalavras = $('#numero-palavras');
@@ -47,3 +41,11 @@ function reiniciaJogo() {
   campo.attr('disabled',false).val('')
   inicializaCronometro()
 }
+
+// execução de funções
+$(function(){
+  atualizaPalavras()
+  inicializaContadores()
+  inicializaCronometro()
+  $('#reiniciar').click(reiniciaJogo);
+})
