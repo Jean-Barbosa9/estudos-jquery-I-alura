@@ -50,7 +50,6 @@ function acompanhaDigitacao() {
   campo.toggleClass('certo',certo)
   campo.toggleClass('errado',!certo)
   digitacaoValida = certo
-
 }
 
 function reiniciaJogo() {
