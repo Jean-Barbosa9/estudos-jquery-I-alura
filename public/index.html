@@ -18,12 +18,12 @@
         </li>
         <li>
           <i class="icones small material-icons">query_builder</i>
-          <span id="tempo">10</span> segundos
+          <span id="tempo">7</span> <span id="medida-tempo">segundos</span>
         </li>
       </ul>
       <textarea class="campo-digitacao" rows="8" cols ="40"></textarea>
       <div class="botoes">
-        <button class="btn-floating btn-large waves-effect waves-light red" id="reiniciar" disabled>
+        <button class="btn-floating btn-large waves-effect waves-light red reiniciar" disabled>
           <i class="material-icons">restore</i>
           Reiniciar
         </button>
@@ -36,6 +36,37 @@
           <span id="contador-palavras">0</span> palavras
         </li>
       </ul>
+      <section class="placar">
+        <h3 class="center">Placar</h3>
+        <table class="centered bordered">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>N. Palavras</th>
+              <th>Tempo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Jean</td>
+              <td>9</td>
+              <td>10 segundos</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+    <div class="mensagem-modal">
+      <div class="conteudo-modal">
+        <p class="mensagem"></p>
+        <button class="fechar btn-floating btn-large waves-effect waves-light gray">
+          <i class="material-icons">close</i>
+        </button>
+        <button class="btn-floating btn-large waves-effect waves-light red reiniciar" disabled>
+          <i class="material-icons">restore</i>
+          Reiniciar
+        </button>
+      </div>
     </div>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/main.js"></script>

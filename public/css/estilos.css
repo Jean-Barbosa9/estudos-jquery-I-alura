@@ -1,7 +1,23 @@
+@keyframes alert {
+  0% {
+    color: red;
+    font-size: 1.5em;
 
+  }
+}
 
 .icones {
   vertical-align: middle;
+}
+
+.informacoes li {
+  line-height: 2.5em;
+}
+
+.tempo-acabando {
+  animation: alert .5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
 }
 
 .campo-digitacao {
@@ -27,4 +43,53 @@
 .frase,
 .campo-digitacao {
   font-size: 20px;
+}
+
+.last-added {
+  background: #008700;
+}
+
+.mensagem-modal {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 0 0 9999px rgba(0,0,0,.7);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.conteudo-modal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.mensagem {
+  margin: 0 auto;
+  font-size: 16px;
+  color: #333333;
+  text-align: justify;
+}
+
+.conteudo-modal .reiniciar, .conteudo-modal .fechar {
+  position: absolute;
+}
+
+.conteudo-modal .reiniciar {
+  bottom: 10px;
+  left: 10px;
+}
+
+.conteudo-modal .fechar {
+  top: 10px;
+  right: 10px;
 }
