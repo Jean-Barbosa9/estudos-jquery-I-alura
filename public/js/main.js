@@ -38,6 +38,7 @@ function inicializaCronometro(){
 }
 
 function acompanhaDigitacao() {
+  // Caso o navegador suporte ES6 é possível usar a função "startsWith(valor digitado)"
   campo.on('input',function(){
     var digitado = campo.val(),
     comparavel = frase.substr(0,digitado.length),
