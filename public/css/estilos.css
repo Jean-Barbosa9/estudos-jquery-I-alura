@@ -1,8 +1,14 @@
-@keyframes alert {
+@keyframes alerta-tempo {
   0% {
     color: red;
     font-size: 1.5em;
 
+  }
+}
+
+@keyframes alerta-erro {
+  0% {
+    box-shadow: 0 0 10px red;
   }
 }
 
@@ -15,7 +21,7 @@
 }
 
 .tempo-acabando {
-  animation: alert .5s;
+  animation: alerta-tempo .5s;
   animation-direction: alternate;
   animation-iteration-count: infinite;
 }
@@ -34,6 +40,9 @@
 
 .campo-digitacao.errado {
   border: 2px solid red;
+  animation: alerta-erro .3s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
 }
 
 .campo-digitacao[disabled] {
@@ -45,8 +54,8 @@
   font-size: 20px;
 }
 
-.last-added {
-  background: #008700;
+tr {
+  transition: background 1s ease-in-out;
 }
 
 .mensagem-modal {

@@ -68,15 +68,16 @@ function inserePontuacao() {
   var corpoTabela = $('.placar').find('tbody'),
   qtdPalavras = $('#contador-palavras').text(),
   tempo = tempoInicial,
-  linha = "<tr class='last-added'>"+
+  linha = "<tr class='green accent-1'>"+
             "<td>"+usuario+"</td>"+
             "<td>"+qtdPalavras+"</td>"+
             "<td>"+tempo+" "+medidaTempo+"</td>"+
+            "<td><button class='remover  btn-floating btn-medium waves-effect waves-light orange lighten-1'><i class='small material-icons'>delete</i></button></td>"+
           "</tr>";
   corpoTabela.append(linha)
   window.scrollTo(0,alturaTela)
   setTimeout(function(){
-    $('.last-added').removeClass('last-added')
+    $('.green.accent-1').removeClass('green accent-1')
   },3000)
 
 }
@@ -89,8 +90,13 @@ function finalizaJogo() {
   }
   else {
     $('.mensagem').text(textoMensagem)
+    $('.errado').removeClass('errado')
     exibirModal()
   }
+}
+
+function removeLinha(linha) {
+  $(linha).closest('tr').remove()
 }
 
 function exibirModal() {
@@ -112,6 +118,10 @@ function bindEvents() {
   })
 
   $('.fechar').click(fecharModal)
+
+  $('body').on('click','.remover',function() {
+    removeLinha(this)
+  })
 }
 
 // execução de funções
