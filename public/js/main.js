@@ -1,12 +1,12 @@
 // declaração de variáveis globais
 var alturaTela = window.screen.height,
 tempoInicial = $('#tempo').text(),
-medidaTempo = $('#medida-tempo').text(),
+// medidaTempo = $('#medida-tempo').text(),
 campo = $('.campo-digitacao'),
 frase = $('.frase').text(),
 digitacaoValida = false,
 numPalavras = $('#numero-palavras'),
-usuario = 'Jean',
+// usuario = 'Jean',
 textoMensagem = 'Olá '+usuario+', infelizmente não poderei marcar sua pontuação, porque o seu texto não foi digitado corretamente. Se quiser tentar de novo, clique no botão de reiniciar abaixo.';
 
 // declaração de funções
@@ -64,24 +64,6 @@ function reiniciaJogo() {
   campo.focus()
 }
 
-function inserePontuacao() {
-  var corpoTabela = $('.placar').find('tbody'),
-  qtdPalavras = $('#contador-palavras').text(),
-  tempo = tempoInicial,
-  linha = "<tr class='green accent-1'>"+
-            "<td>"+usuario+"</td>"+
-            "<td>"+qtdPalavras+"</td>"+
-            "<td>"+tempo+" "+medidaTempo+"</td>"+
-            "<td><button class='remover  btn-floating btn-medium waves-effect waves-light orange lighten-1'><i class='small material-icons'>delete</i></button></td>"+
-          "</tr>";
-  corpoTabela.append(linha)
-  window.scrollTo(0,alturaTela)
-  setTimeout(function(){
-    $('.green.accent-1').removeClass('green accent-1')
-  },3000)
-
-}
-
 function finalizaJogo() {
   campo.attr('disabled', true)
   $('.reiniciar').removeAttr('disabled')
@@ -93,10 +75,6 @@ function finalizaJogo() {
     $('.errado').removeClass('errado')
     exibirModal()
   }
-}
-
-function removeLinha(linha) {
-  $(linha).closest('tr').remove()
 }
 
 function exibirModal() {
@@ -119,9 +97,6 @@ function bindEvents() {
 
   $('.fechar').click(fecharModal)
 
-  $('body').on('click','.remover',function() {
-    removeLinha(this)
-  })
 }
 
 // execução de funções
