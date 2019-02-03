@@ -1,5 +1,4 @@
-var usuario = 'Jean',
-medidaTempo = $('#medida-tempo').text();
+var placar = $('.placar');
 
 function inserePontuacao() {
   var corpoTabela = $('.placar').find('tbody'),
@@ -20,7 +19,10 @@ function inserePontuacao() {
 }
 
 function removeLinha(linha) {
-  $(linha).closest('tr').remove()
+  $(linha).closest('tr').fadeOut(1000)
+  setTimeout(function(){
+    $(linha).closest('tr').remove()
+  },1000)
 }
 
 $('body').on('click','.remover',function() {

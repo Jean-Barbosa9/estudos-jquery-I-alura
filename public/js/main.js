@@ -1,12 +1,12 @@
 // declaração de variáveis globais
 var alturaTela = window.screen.height,
 tempoInicial = $('#tempo').text(),
-// medidaTempo = $('#medida-tempo').text(),
+medidaTempo = $('#medida-tempo').text(),
 campo = $('.campo-digitacao'),
 frase = $('.frase').text(),
 digitacaoValida = false,
 numPalavras = $('#numero-palavras'),
-// usuario = 'Jean',
+usuario = 'Jean',
 textoMensagem = 'Olá '+usuario+', infelizmente não poderei marcar sua pontuação, porque o seu texto não foi digitado corretamente. Se quiser tentar de novo, clique no botão de reiniciar abaixo.';
 
 // declaração de funções
