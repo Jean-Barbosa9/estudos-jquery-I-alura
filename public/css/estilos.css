@@ -12,6 +12,10 @@
   }
 }
 
+body {
+  overflow: scroll;
+}
+
 .icones {
   vertical-align: middle;
 }
@@ -52,6 +56,10 @@
 .frase,
 .campo-digitacao {
   font-size: 20px;
+}
+
+.placar {
+  display: none;
 }
 
 tr {

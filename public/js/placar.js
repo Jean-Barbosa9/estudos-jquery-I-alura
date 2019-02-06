@@ -1,5 +1,11 @@
 var placar = $('.placar');
 
+function mostraPlacar() {
+  placar.stop().slideToggle(600, function(){
+    $('html').animate({scrollTop: $('.placar').offset().top+'px'},1000)
+  })
+}
+
 function inserePontuacao() {
   var corpoTabela = $('.placar').find('tbody'),
   qtdPalavras = $('#contador-palavras').text(),
@@ -10,8 +16,11 @@ function inserePontuacao() {
             "<td>"+tempo+" "+medidaTempo+"</td>"+
             "<td><button class='remover  btn-floating btn-medium waves-effect waves-light orange lighten-1'><i class='small material-icons'>delete</i></button></td>"+
           "</tr>";
+
   corpoTabela.append(linha)
-  window.scrollTo(0,alturaTela)
+
+  mostraPlacar()
+
   setTimeout(function(){
     $('.ultimo-adicionado').removeClass('ultimo-adicionado green accent-1')
   },3000)
@@ -19,12 +28,17 @@ function inserePontuacao() {
 }
 
 function removeLinha(linha) {
-  $(linha).closest('tr').fadeOut(1000)
-  setTimeout(function(){
+  $(linha).closest('tr').fadeOut(1000, function(){
     $(linha).closest('tr').remove()
-  },1000)
+  })
 }
 
-$('body').on('click','.remover',function() {
-  removeLinha(this)
-})
+function bindEventsPlacar(){
+  $('body').on('click','.remover',function() {
+    removeLinha(this)
+  })
+
+  $('.mostra-placar').click(function(){
+    mostraPlacar()
+  })
+}

@@ -62,6 +62,7 @@ function reiniciaJogo() {
   campo.removeClass('certo errado')
   fecharModal()
   campo.focus()
+  $('.placar').stop().slideUp()
 }
 
 function finalizaJogo() {
@@ -103,4 +104,5 @@ function bindEvents() {
 $(function(){
   bindEvents()
   atualizaPalavras()
+  bindEventsPlacar()
 })
