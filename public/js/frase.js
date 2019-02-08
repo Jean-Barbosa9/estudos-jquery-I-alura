@@ -1,1 +1,9 @@
-// TODO: criar funções de troca de frase e a que faz o get no servidor
+function fraseAleatoria() {
+  $.get('/frases', atualizaFrase)
+}
+
+function atualizaFrase(resposta) {
+  var indiceAleatorio = numeroAleatorio(resposta.length)
+  $('.frase').text(resposta[indiceAleatorio].texto)
+  inicializaContadores()
+}

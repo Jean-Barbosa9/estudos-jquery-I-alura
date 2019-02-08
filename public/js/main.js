@@ -86,6 +86,10 @@ function fecharModal() {
   $('.mensagem-modal').fadeOut()
 }
 
+function numeroAleatorio(numMaximo) {
+  return Math.floor(Math.random() * numMaximo)
+}
+
 function bindEvents() {
   $('.reiniciar').click(reiniciaJogo);
   campo.on('input', function() {
@@ -98,11 +102,19 @@ function bindEvents() {
 
   $('.fechar').click(fecharModal)
 
+  $('body').on('click','.remover',function() {
+    removeLinha(this)
+  })
+
+  $('.mostra-placar').click(function(){
+    mostraPlacar()
+  })
+
+  $('.nova-frase').click(fraseAleatoria)
 }
 
 // execução de funções
 $(function(){
   bindEvents()
   atualizaPalavras()
-  bindEventsPlacar()
 })

@@ -32,13 +32,3 @@ function removeLinha(linha) {
     $(linha).closest('tr').remove()
   })
 }
-
-function bindEventsPlacar(){
-  $('body').on('click','.remover',function() {
-    removeLinha(this)
-  })
-
-  $('.mostra-placar').click(function(){
-    mostraPlacar()
-  })
-}
