@@ -24,7 +24,7 @@ function inicializaContadores(){
 }
 
 function inicializaCronometro(){
-  window.cronometro = setInterval(function () {
+  var cronometro = setInterval(function () {
     tempoRestante--;
     $('#tempo').text(tempoRestante)
 
@@ -33,15 +33,12 @@ function inicializaCronometro(){
     }
 
     if (tempoRestante < 1) {
-      pararCronometro()
+      clearInterval(cronometro)
+      finalizaJogo()
+      $('#tempo').closest('li').removeClass('tempo-acabando')
+
     }
   }, 1000)
-}
-
-function pararCronometro() {
-  clearInterval(window.cronometro)
-  finalizaJogo()
-  $('#tempo').closest('li').removeClass('tempo-acabando')
 }
 
 function acompanhaDigitacao() {
@@ -56,7 +53,7 @@ function acompanhaDigitacao() {
   digitacaoValida = certo
 
   if(certo && (digitado.length == $('.frase').text().length)) {
-    pararCronometro()
+    tempoRestante = 1
   }
 }
 
@@ -66,7 +63,9 @@ function reiniciaJogo() {
   $('#tempo').text(tempoInicial)
   tempoRestante = tempoInicial
   campo.attr('disabled',false).val('')
-  inicializaCronometro()
+  setTimeout(function(){
+    inicializaCronometro()
+  },500)
   $('.reiniciar').attr('disabled',true)
   campo.removeClass('certo errado')
   fecharModal()
@@ -101,9 +100,11 @@ function numeroAleatorio(numMaximo) {
 
 function bindEvents() {
   $('.reiniciar').click(reiniciaJogo);
-  campo.on('input', function() {
+  campo.on('input', function(e) {
+    // TODO: Impedir usuário de colar qualquer tipo de informação nesse campo
     acompanhaDigitacao()
     inicializaContadores()
+
   })
   campo.one('focus',function(){
     inicializaCronometro()
@@ -120,8 +121,8 @@ function bindEvents() {
   })
 
   $('.nova-frase').click(fraseAleatoria)
-}
 
+}
 // execução de funções
 $(function(){
   bindEvents()
