@@ -1,6 +1,7 @@
 // declaração de variáveis globais
 var alturaTela = window.screen.height,
 tempoInicial = $('#tempo').text(),
+tempoRestante = $('#tempo').text(),
 medidaTempo = $('#medida-tempo').text(),
 campo = $('.campo-digitacao'),
 frase = $('.frase').text(),
@@ -23,9 +24,7 @@ function inicializaContadores(){
 }
 
 function inicializaCronometro(){
-  var tempoRestante = $('#tempo').text();
-
-  var cronometro = setInterval(function () {
+  window.cronometro = setInterval(function () {
     tempoRestante--;
     $('#tempo').text(tempoRestante)
 
@@ -34,28 +33,38 @@ function inicializaCronometro(){
     }
 
     if (tempoRestante < 1) {
-      clearInterval(cronometro)
-      finalizaJogo()
-      $('#tempo').closest('li').removeClass('tempo-acabando')
+      pararCronometro()
     }
   }, 1000)
 }
 
+function pararCronometro() {
+  clearInterval(window.cronometro)
+  finalizaJogo()
+  $('#tempo').closest('li').removeClass('tempo-acabando')
+}
+
 function acompanhaDigitacao() {
   // Caso o navegador suporte ES6 é possível usar a função "startsWith(valor digitado)"
-  var digitado = campo.val(),
+  var frase = $('.frase').text(),
+  digitado = campo.val(),
   comparavel = frase.substr(0,digitado.length),
   certo = (digitado == comparavel);
 
   campo.toggleClass('certo',certo)
   campo.toggleClass('errado',!certo)
   digitacaoValida = certo
+
+  if(certo && (digitado.length == $('.frase').text().length)) {
+    pararCronometro()
+  }
 }
 
 function reiniciaJogo() {
   $('#contador-caracteres').text('0')
   $('#contador-palavras').text('0')
   $('#tempo').text(tempoInicial)
+  tempoRestante = tempoInicial
   campo.attr('disabled',false).val('')
   inicializaCronometro()
   $('.reiniciar').attr('disabled',true)

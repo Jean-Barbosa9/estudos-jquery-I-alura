@@ -4,6 +4,10 @@ function fraseAleatoria() {
 
 function atualizaFrase(resposta) {
   var indiceAleatorio = numeroAleatorio(resposta.length)
-  $('.frase').text(resposta[indiceAleatorio].texto)
-  inicializaContadores()
+  var novaFrase = resposta[indiceAleatorio]
+  $('.frase').text(novaFrase.texto)
+  tempoInicial = novaFrase.tempo
+  $('#tempo').text(novaFrase.tempo)
+  atualizaPalavras()
+  reiniciaJogo()
 }

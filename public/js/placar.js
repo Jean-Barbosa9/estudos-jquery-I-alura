@@ -9,7 +9,7 @@ function mostraPlacar() {
 function inserePontuacao() {
   var corpoTabela = $('.placar').find('tbody'),
   qtdPalavras = $('#contador-palavras').text(),
-  tempo = tempoInicial,
+  tempo = tempoInicial - tempoRestante,
   linha = "<tr class='ultimo-adicionado green accent-1'>"+
             "<td>"+usuario+"</td>"+
             "<td>"+qtdPalavras+"</td>"+
