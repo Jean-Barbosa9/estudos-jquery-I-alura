@@ -77,7 +77,10 @@ function finalizaJogo() {
   campo.attr('disabled', true)
   $('.reiniciar').removeAttr('disabled')
   if(digitacaoValida) {
-    inserePontuacao()
+    $('#tempo').text(0)
+    var palavras = $('#contador-palavras').text(),
+    tempo = tempoInicial - tempoRestante
+    inserePontuacao(usuario,palavras,tempo,true)
   }
   else {
     $('#tempo').text(0)
@@ -127,9 +130,11 @@ function bindEvents() {
     buscaFrase($('#idFraseEspecifica').val())
   })
 
+  $('.salva-placar').click(salvaPlacar)
 }
 // execução de funções
 $(function(){
   bindEvents()
   atualizaPalavras()
+  consultaPlacar()
 })

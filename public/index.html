@@ -12,6 +12,7 @@
       <h1 class="titulo center">Alura Typer</h1>
       <p class="frase">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla tenetur quo sapiente, molestias officia reprehenderit a natus optio ullam assumenda ad praesentium consequuntur aliquid sequi, excepturi deserunt libero quaerat? Eaque?</p>
       <p class="center mensagem-erro">Ocorreu um erro, por favor tente novamente</p>
+      <p class="center mensagem-placar-salvo">Placar salvo!</p>
       <ul class="informacoes center">
         <li>
           <i class="icones small material-icons">description</i>
@@ -37,6 +38,9 @@
           <i class="material-icons">repeat_one</i>
         </button>
         <input id="idFraseEspecifica" min="0" value="0"/>
+        <button title="Salva placar" class="btn-floating btn-large waves-effect waves-light yellow salva-placar" >
+          <i class="material-icons">swap_vert</i>
+        </button>
       </div>
       <ul class="contadores center">
         <li>
@@ -53,7 +57,7 @@
             <tr>
               <th>Nome</th>
               <th>N. Palavras</th>
-              <th>Tempo</th>
+              <th title="segundos">Tempo*</th>
               <th>Remover</th>
             </tr>
           </thead>
