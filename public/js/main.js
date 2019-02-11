@@ -80,6 +80,7 @@ function finalizaJogo() {
     inserePontuacao()
   }
   else {
+    $('#tempo').text(0)
     $('.mensagem').text(textoMensagem)
     $('.errado').removeClass('errado')
     exibirModal()
@@ -121,6 +122,10 @@ function bindEvents() {
   })
 
   $('.nova-frase').click(fraseAleatoria)
+
+  $('.nova-frase-especifica').click(function(){
+    buscaFrase($('#idFraseEspecifica').val())
+  })
 
 }
 // execução de funções
