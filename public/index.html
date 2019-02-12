@@ -1,88 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <title>Alura Typer</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <!--Import materialize.css-->
     <link rel="stylesheet" href="css/libs/materialize.min.css">
-    <link rel="stylesheet" href="css/libs/google-fonts.css">
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="titulo center">Alura Typer</h1>
-      <p class="frase">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla tenetur quo sapiente, molestias officia reprehenderit a natus optio ullam assumenda ad praesentium consequuntur aliquid sequi, excepturi deserunt libero quaerat? Eaque?</p>
-      <p class="center mensagem-erro">Ocorreu um erro, por favor tente novamente</p>
-      <p class="center mensagem-placar-salvo">Placar salvo!</p>
-      <ul class="informacoes center">
-        <li>
-          <i class="icones small material-icons">description</i>
-          <span id="numero-palavras"></span> palavras
-        </li>
-        <li>
-          <i class="icones small material-icons">query_builder</i>
-          <span id="tempo">23</span> <span id="medida-tempo">segundos</span>
-        </li>
-      </ul>
-      <textarea class="campo-digitacao" rows="8" cols ="40"></textarea>
-      <div class="botoes">
-        <button title="Reiniciar jogo" class="btn-floating btn-large waves-effect waves-light red reiniciar" disabled>
-          <i class="material-icons">restore</i>
-        </button>
-        <button title="Mostrar placar" class="btn-floating btn-large waves-effect waves-light green mostra-placar">
-          <i class="material-icons">assignment</i>
-        </button>
-        <button title="Buscar frase aleatória" class="btn-floating btn-large waves-effect waves-light blue nova-frase" >
-          <i class="material-icons">shuffle</i>
-        </button>
-        <button title="Buscar frase específica" class="btn-floating btn-large waves-effect waves-light cyan nova-frase-especifica" >
-          <i class="material-icons">repeat_one</i>
-        </button>
-        <input id="idFraseEspecifica" min="0" value="0"/>
-        <button title="Salva placar" class="btn-floating btn-large waves-effect waves-light yellow salva-placar" >
-          <i class="material-icons">swap_vert</i>
-        </button>
-      </div>
-      <ul class="contadores center">
-        <li>
-          <span id="contador-caracteres">0</span> caracteres
-        </li>
-        <li>
-          <span id="contador-palavras">0</span> palavras
-        </li>
-      </ul>
-      <section class="placar">
-        <h3 class="center">Placar</h3>
-        <table class="centered bordered">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>N. Palavras</th>
-              <th title="segundos">Tempo*</th>
-              <th>Remover</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </section>
-    </div>
-    <div class="mensagem-modal">
-      <div class="conteudo-modal">
-        <p class="mensagem"></p>
-        <button class="fechar btn-floating btn-large waves-effect waves-light blue lighten-3">
-          <i class="material-icons">close</i>
-        </button>
-        <button title="Reiniciar jogo" class="btn-floating btn-large waves-effect waves-light red reiniciar" disabled>
-          <i class="material-icons">restore</i>
-        </button>
-      </div>
-    </div>
-    <div class="carregando">
-        <img src="img/spinner.gif" alt="Carregando...">
-    </div>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/placar.js"></script>
-    <script type="text/javascript" src="js/frase.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-  </body>
+    <!-- Import Google Material Icons -->
+    <link href="css/libs/google-fonts.css" rel="stylesheet">
+    <link rel="stylesheet" href="slick/slick-theme.css">
+    <link rel="stylesheet" href="slick/slick.css">
+    <link href="css/index.css" rel="stylesheet">
+</head>
+<body>
+    <section class="container">
+        <h1 class="center titulo header">Alura typer</h1>
+        <div class="carrossel">
+          <img src="img/slide1.png" class="imagem-jogo">
+          <img src="img/slide2.png" class="imagem-jogo">
+          <img src="img/slide3.png" class="imagem-jogo">
+        </div>
+        <hr>
+        <p class="flow-text center">Teste sua velocidade competindo contra seus amigos!</p>
+        <div class="card">
+          <div class="card-image">
+            <!-- <img src="images/sample-1.jpg"> -->
+          </div>
+          <div class="card-content">
+            <p>Placar dinâmico! Sincronizando com o servidor!</p>
+          </div>
+          <div class="card-action">
+          <a href="principal.html">Experimente agora!</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <!-- <img src="img/sl.jpg"> -->
+          </div>
+          <div class="card-content">
+            <p>Frases aleatórias ou escolha diretamente em qual delas você quer competir!</p>
+          </div>
+          <div class="card-action">
+            <a href="principal.html">Experimente agora!</a>
+          </div>
+        </div>
+
+        <a class="waves-effect waves-light btn-large orange" id="botao-jogue" href="principal.html">Jogue agora!</a>
+
+    </section>
+
+    <script src="js/jquery.js"></script>
+    <script src="slick/slick.min.js"></script>
+    <script src="js/slider.js"></script>
+
+
+</body>
 </html>
