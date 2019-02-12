@@ -3,6 +3,7 @@ $(function(){
     dots: true,
     arrows: true,
     infinite: true,
-    variableHeight: true
+    adaptiveHeight: true,
+    slidesToShow: 1
   })
 })
