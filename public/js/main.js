@@ -108,6 +108,7 @@ function bindEvents() {
   $('.reiniciar').click(reiniciaJogo);
   campo.on('input', function(e) {
     // TODO: Impedir usuário de colar qualquer tipo de informação nesse campo
+    // TODO: desabilitar os botões em quanto o jogo está em andamento, deixando apenas o botão de reiniciar habilitado. Quando o jogo a página carrega ou o tempo acaba, os botões devem ser ativados de volta
     acompanhaDigitacao()
     inicializaContadores()
 
@@ -136,7 +137,6 @@ function bindEvents() {
 
   $('#usuarios').change(function(){
     usuario = $(this).val()
-    console.log('usuario: ', usuario);
   })
 
   $('#usuarios').selectize({

@@ -22,8 +22,6 @@ function atualizaFrase(resposta) {
   $('#tempo').text(novaFrase.tempo)
   $('#idFraseEspecifica').val(novaFrase._id)
   atualizaPalavras()
-  $('.campo-digitacao').val('').removeClass('certo errado').attr('disabled',false)
-
 }
 
 function buscaFrase(idFrase) {
@@ -49,5 +47,4 @@ function trocaFrase(resposta) {
   tempoRestante = tempoInicial = resposta.tempo
   $('#tempo').text(resposta.tempo)
   atualizaPalavras()
-  $('.campo-digitacao').val('').removeClass('certo errado').attr('disabled',false)
 }
