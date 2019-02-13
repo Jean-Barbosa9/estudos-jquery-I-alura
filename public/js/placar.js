@@ -1,7 +1,7 @@
 var placar = $('.placar');
 
 function mostraPlacar() {
-  placar.stop().slideToggle(600, function(){
+  placar.stop(true, true).slideToggle(600, function(){
     $('html').animate({scrollTop: $('.placar').offset().top+'px'},1000)
   })
 }
@@ -15,7 +15,7 @@ function inserePontuacao(usuario,palavras,tempo, placar = false) {
             "<td><button class='remover  btn-floating btn-medium waves-effect waves-light orange lighten-1'><i class='small material-icons'>delete</i></button></td>"+
           "</tr>";
 
-  corpoTabela.append(linha)
+  corpoTabela.prepend(linha)
 
   if(placar) {
     mostraPlacar()
@@ -54,18 +54,16 @@ function salvaPlacar() {
     placar: placar
   }
 
-  $('.carregando').toggle()
+  $('.tooltip').tooltipster('open').tooltipster('content','Salvando placar...')
   $.post('/placar', dados, function(){
     $('.placar').slideUp()
-    $('.mensagem-placar-salvo').stop(true,true).fadeIn()
-    setTimeout(function(){$('.mensagem-placar-salvo').fadeOut()},3000)
+    $('.tooltip').tooltipster('open').tooltipster('content','Salvo com sucesso!')
   }).fail(function(){
-    $('.mensagem-erro').fadeIn()
-    setTimeout(function(){
-      $('.mensagem-erro').fadeOut()
-    },3000)
+    $('.tooltip').tooltipster('open').tooltipster('content','Ocorreu um erro ao salvar o placar')
   }).always(function(){
-    $('.carregando').toggle()
+    setTimeout(function(){
+      $('.tooltip').tooltipster('close')
+    },3000)
   })
 }
 
@@ -73,7 +71,6 @@ function consultaPlacar() {
   $.get('/placar',function(resposta){
     $(resposta).each(function(){
       inserePontuacao(this.usuario,this.pontos,this.tempo)
-      console.log(resposta);
     })
   })
 }

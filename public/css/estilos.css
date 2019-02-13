@@ -97,6 +97,19 @@ body {
   text-align: center;
 }
 
+.select-usuarios{
+  display:inline-block;
+}
+
+#usuarios{
+  display:block;
+}
+
+.selectize-input {
+  width: 150px;
+  vertical-align: middle;
+}
+
 .salva-placar {
   float: right;
 }

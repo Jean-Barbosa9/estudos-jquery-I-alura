@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <title>Alura Typer</title>
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/libs/materialize.min.css">
     <link rel="stylesheet" href="css/libs/google-fonts.css">
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/libs/selectize.default.css">
+    <link rel="stylesheet" href="css/libs/tooltipster.bundle.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
   </head>
   <body>
     <div class="container">
@@ -38,7 +40,19 @@
           <i class="material-icons">repeat_one</i>
         </button>
         <input id="idFraseEspecifica" min="0" value="0"/>
-        <button title="Salva placar" class="btn-floating btn-large waves-effect waves-light yellow salva-placar" >
+        <div class="select-usuarios">
+          <select id="usuarios">
+            <option value="Jean">Jean</option>
+            <option value="Dani">Dani</option>
+            <option value="Marcelo">Marcelo</option>
+            <option value="Susan">Susan</option>
+            <option value="Henrique">Henrique</option>
+            <option value="Danilo">Danilo</option>
+            <option value="Edgar">Edgar</option>
+            <option value="Patrícia">Patrícia</option>
+          </select>
+        </div>
+        <button title="Salvar placar" class="tooltip btn-floating btn-large waves-effect waves-light yellow salva-placar" >
           <i class="material-icons">swap_vert</i>
         </button>
       </div>
@@ -84,5 +98,7 @@
     <script type="text/javascript" src="js/frase.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/selectize.js"></script>
+    <script type="text/javascript" src="js/tooltipster.bundle.min.js"></script>
   </body>
 </html>

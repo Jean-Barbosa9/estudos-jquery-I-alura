@@ -7,8 +7,7 @@ campo = $('.campo-digitacao'),
 frase = $('.frase').text(),
 digitacaoValida = false,
 numPalavras = $('#numero-palavras'),
-usuario = 'Jean',
-textoMensagem = 'Olá '+usuario+', infelizmente não poderei marcar sua pontuação, porque o seu texto não foi digitado corretamente. Se quiser tentar de novo, clique no botão de reiniciar abaixo.';
+usuario = $('#usuarios').val();
 
 // declaração de funções
 function atualizaPalavras(){
@@ -24,7 +23,7 @@ function inicializaContadores(){
 }
 
 function inicializaCronometro(){
-  var cronometro = setInterval(function () {
+  window.cronometro = setInterval(function () {
     tempoRestante--;
     $('#tempo').text(tempoRestante)
 
@@ -53,11 +52,13 @@ function acompanhaDigitacao() {
   digitacaoValida = certo
 
   if(certo && (digitado.length == $('.frase').text().length)) {
-    tempoRestante = 1
+    clearInterval(cronometro)
+    finalizaJogo()
   }
 }
 
 function reiniciaJogo() {
+  clearInterval(cronometro)
   $('#contador-caracteres').text('0')
   $('#contador-palavras').text('0')
   $('#tempo').text(tempoInicial)
@@ -77,17 +78,18 @@ function finalizaJogo() {
   campo.attr('disabled', true)
   $('.reiniciar').removeAttr('disabled')
   if(digitacaoValida) {
-    $('#tempo').text(0)
     var palavras = $('#contador-palavras').text(),
     tempo = tempoInicial - tempoRestante
+    console.log('tempo: ', tempo);
     inserePontuacao(usuario,palavras,tempo,true)
   }
   else {
-    $('#tempo').text(0)
+    var textoMensagem = 'Olá '+usuario+', infelizmente não poderei marcar sua pontuação, porque o seu texto não foi digitado corretamente. Se quiser tentar de novo, clique no botão de reiniciar abaixo.';
     $('.mensagem').text(textoMensagem)
     $('.errado').removeClass('errado')
     exibirModal()
   }
+  $('#tempo').text(0)
 }
 
 function exibirModal() {
@@ -131,9 +133,24 @@ function bindEvents() {
   })
 
   $('.salva-placar').click(salvaPlacar)
+
+  $('#usuarios').change(function(){
+    usuario = $(this).val()
+    console.log('usuario: ', usuario);
+  })
+
+  $('#usuarios').selectize({
+    create: true,
+    sortField: 'text'
+  })
+
+  $('.tooltip').tooltipster({
+    trigger: 'custom'
+  })
 }
 // execução de funções
 $(function(){
+  console.log(usuario)
   bindEvents()
   atualizaPalavras()
   consultaPlacar()
